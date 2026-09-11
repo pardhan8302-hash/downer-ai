@@ -484,6 +484,11 @@
       });
     }
 
+    // Tab switching
+    document.querySelectorAll('.phone-tab').forEach(tab => {
+      tab.addEventListener('click', () => switchPhoneTab(tab.dataset.tab));
+    });
+
     if (btnPwaInstall) {
       btnPwaInstall.addEventListener('click', async () => {
         if (deferredPrompt) {
@@ -492,7 +497,13 @@
           deferredPrompt = null;
           closeDownloadModal();
         } else {
-          alert("To install on your phone:\n\n• Android / Chrome: Tap the three dots (⋮) in your browser and select 'Install App' or 'Add to Home screen'.\n\n• iPhone / Safari: Tap the Share button at the bottom and select 'Add to Home Screen'.");
+          // No prompt available — switch to manual steps tab based on OS
+          const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+          if (isIos) switchPhoneTab('ios');
+          const pwaHint = document.getElementById('pwa-hint');
+          if (pwaHint) {
+            pwaHint.innerHTML = '<span style="color:#fde68a">⚠️ Auto-install not available. Follow the steps below.</span>';
+          }
         }
       });
     }
@@ -501,10 +512,23 @@
   // ============================================================
   // Download Modal Logic
   // ============================================================
+  function switchPhoneTab(tabId) {
+    document.querySelectorAll('.phone-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.tab === tabId);
+    });
+    document.querySelectorAll('.phone-tab-content').forEach(c => {
+      c.classList.toggle('active', c.id === 'tab-' + tabId);
+      c.classList.toggle('hidden', c.id !== 'tab-' + tabId);
+    });
+  }
+
   function openDownloadModal() {
+    // Auto-select the right tab based on OS
     const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    if (isIos && iosInstallInstructions) {
-      iosInstallInstructions.classList.remove('hidden');
+    if (isIos) {
+      switchPhoneTab('ios');
+    } else {
+      switchPhoneTab('android');
     }
     if (downloadModal) downloadModal.classList.remove('hidden');
   }
@@ -512,6 +536,8 @@
   function closeDownloadModal() {
     if (downloadModal) downloadModal.classList.add('hidden');
   }
+
+
 
   // ============================================================
   // Chat Logic

@@ -293,43 +293,68 @@
       </div>
     </div>
 
-    <!-- Download & Install on Phone Modal -->
-    <div id="download-modal" class="modal-backdrop hidden">
-      <div class="modal-card">
-        <div class="modal-header">
-          <h3 class="modal-title">Download & Install Downer AI</h3>
-          <button id="btn-close-download" class="modal-close-btn">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="download-options-grid">
-            <!-- Option 1: Mobile App Install (PWA) -->
-            <div class="download-card">
-              <div class="download-card-icon">📱</div>
-              <div class="download-card-content">
-                <h4 class="download-card-title">Install Web App on Phone</h4>
-                <p class="download-card-desc">Add Downer AI to your phone's home screen. Runs full-screen with offline support and zero browser address bars.</p>
-                <div id="pwa-install-container">
-                  <button id="btn-pwa-install" class="btn btn-primary" style="width:100%; margin-top:10px;">
-                    Install App to Phone Home Screen
-                  </button>
-                </div>
-                <div id="ios-install-instructions" class="ios-instructions hidden">
-                  <p><strong>iPhone / iPad Safari:</strong> Tap the <strong>Share</strong> button <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg> at the bottom of Safari, then scroll down and tap <strong>"Add to Home Screen"</strong>.</p>
-                </div>
-              </div>
-            </div>
+    <!-- Phone Install Popup -->
+    <div id="download-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-label="Install Downer AI on Phone">
+      <div class="modal-card phone-modal">
+        <!-- Close -->
+        <button id="btn-close-download" class="modal-close-btn" aria-label="Close">&times;</button>
 
-            <!-- Option 2: Project ZIP Download -->
-            <div class="download-card">
-              <div class="download-card-icon">📦</div>
-              <div class="download-card-content">
-                <h4 class="download-card-title">Download Complete Project ZIP</h4>
-                <p class="download-card-desc">Download all files (ready for Vercel, Node, Python) in a single zip file to save on your phone or computer.</p>
-                <a href="/downer-ai.zip" download="downer-ai.zip" id="btn-download-zip" class="btn btn-secondary" style="width:100%; margin-top:10px; display:inline-block; text-align:center; text-decoration:none;">
-                  📥 Download downer-ai.zip (39 KB)
-                </a>
-              </div>
+        <!-- Header -->
+        <div class="phone-modal-header">
+          <div class="phone-modal-icon">📲</div>
+          <h3 class="phone-modal-title">Get Downer AI on Your Phone</h3>
+          <p class="phone-modal-sub">Install it like a real app — no App Store needed.</p>
+        </div>
+
+        <!-- OS Tabs -->
+        <div class="phone-tabs">
+          <button class="phone-tab active" data-tab="android">🤖 Android</button>
+          <button class="phone-tab" data-tab="ios">🍎 iPhone / iPad</button>
+          <button class="phone-tab" data-tab="zip">📦 ZIP File</button>
+        </div>
+
+        <!-- Android Tab -->
+        <div class="phone-tab-content active" id="tab-android">
+          <div id="pwa-install-container">
+            <button id="btn-pwa-install" class="btn btn-primary phone-install-btn">
+              ⚡ Tap to Install App Now
+            </button>
+            <p class="phone-hint" id="pwa-hint">Your browser will show a prompt — tap <strong>Install</strong>.</p>
+          </div>
+          <div class="phone-steps">
+            <p class="phone-steps-label">Or do it manually:</p>
+            <div class="phone-step"><span class="step-num">1</span><span>Open this page in <strong>Chrome</strong> on Android</span></div>
+            <div class="phone-step"><span class="step-num">2</span><span>Tap the <strong>⋮ menu</strong> (top-right)</span></div>
+            <div class="phone-step"><span class="step-num">3</span><span>Tap <strong>"Add to Home screen"</strong></span></div>
+            <div class="phone-step"><span class="step-num">4</span><span>Tap <strong>"Add"</strong> — done! 🎉</span></div>
+          </div>
+        </div>
+
+        <!-- iOS Tab -->
+        <div class="phone-tab-content hidden" id="tab-ios">
+          <div class="ios-note">⚠️ Use <strong>Safari</strong> on iPhone/iPad — Chrome on iOS doesn't support install.</div>
+          <div class="phone-steps">
+            <div class="phone-step"><span class="step-num">1</span><span>Open this site in <strong>Safari</strong></span></div>
+            <div class="phone-step"><span class="step-num">2</span>
+              <span>Tap the <strong>Share</strong> button
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin:0 2px"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                at the <strong>bottom</strong> of Safari
+              </span>
             </div>
+            <div class="phone-step"><span class="step-num">3</span><span>Scroll down and tap <strong>"Add to Home Screen"</strong></span></div>
+            <div class="phone-step"><span class="step-num">4</span><span>Tap <strong>"Add"</strong> in the top-right — done! 🎉</span></div>
+          </div>
+        </div>
+
+        <!-- ZIP Tab -->
+        <div class="phone-tab-content hidden" id="tab-zip">
+          <div class="zip-section">
+            <div class="zip-icon">📦</div>
+            <p class="zip-desc">Download the complete project — run it locally with Python or deploy to Vercel.</p>
+            <a href="/downer-ai.zip" download="downer-ai.zip" class="btn btn-primary phone-install-btn" style="text-decoration:none;">
+              📥 Download downer-ai.zip
+            </a>
+            <p class="phone-hint">~41 KB · includes all files</p>
           </div>
         </div>
       </div>
