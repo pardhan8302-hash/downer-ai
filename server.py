@@ -312,7 +312,7 @@ def run_server(port=None, host=None):
     
     cfg = get_provider_config()
     print("=" * 60)
-    print("  📉 DOWNER AI SERVER STARTED")
+    print("  DOWNER AI SERVER STARTED")
     print("  'No toxic positivity here.'")
     print("=" * 60)
     print(f"  URL: http://{host}:{port}")
@@ -320,8 +320,8 @@ def run_server(port=None, host=None):
     print(f"  Groq Configured: {'Yes' if cfg['groq']['configured'] else 'No (set GROQ_API_KEY in .env)'}")
     print(f"  OpenRouter Configured: {'Yes' if cfg['openrouter']['configured'] else 'No (set OPENROUTER_API_KEY in .env)'}")
     if not cfg['has_any_key']:
-        print("  💡 NOTICE: No API key detected. Running in curated OFFLINE MISERY MODE.")
-        print("     Add your GROQ_API_KEY to .env anytime to activate live Llama 3.3.")
+        print("  NOTICE: No API key detected. Running in OFFLINE MISERY MODE.")
+        print("     Add your GROQ_API_KEY to .env anytime to activate live AI.")
     print("=" * 60)
     print("  Press Ctrl+C to stop.\n")
     
