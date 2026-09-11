@@ -588,7 +588,19 @@
         })
       });
 
-      const data = await response.json();
+      // Safely parse JSON — server might return plain text on errors
+      let data;
+      const contentType = response.headers.get('content-type') || '';
+      if (contentType.includes('application/json')) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        if (!response.ok) {
+          throw new Error(`Server error ${response.status}: ${text.slice(0, 120)}`);
+        }
+        throw new Error(`Unexpected response from server: ${text.slice(0, 120)}`);
+      }
+
       hideTypingIndicator();
 
       if (!response.ok) {

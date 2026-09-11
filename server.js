@@ -231,8 +231,14 @@ const server = http.createServer((req, res) => {
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end('File Not Found');
+      // Return JSON for API paths, plain 404 for static files
+      if (pathname.startsWith('/api/')) {
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: `API route not found: ${pathname}` }));
+      } else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('File Not Found');
+      }
       return;
     }
     const ext = path.extname(filePath).toLowerCase();
