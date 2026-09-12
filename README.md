@@ -10,8 +10,8 @@
 
 
 ### Team Members
-- Team Lead: [Name] - [ANZEPHIN AZZARO S]
-- Member 2: [Name] - [PARDHAN S]
+- Team Lead: [Name] - [ANZEPHIN AZZARO S]-ACE COLLEGE OF ENGINERING
+- Member 2: [Name] - [PARDHAN S]-ACE COLLEGE OF ENGINERING
 - Member 3: [Name] - [College]
 
 ### Project Description
@@ -145,18 +145,55 @@ downer-ai/
 ---:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+https://github.com/user-attachments/assets/05c23183-f4c5-4904-9e92-6c3c4854165b
+
+
+<img width="1920" height="1080" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/bc8ee1dc-2271-495f-afea-2808fda6a4f8" />
+<img width="1920" height="1080" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/1a507ba2-cbb7-4e46-bd1b-061f24fbdd90" />
+<img width="1920" height="1080" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/9f5e3d9b-33d7-404f-9800-59a3354d82ae" />
+
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+[ Start ]
+    |
+    v
+[ User opens the app ]
+    |
+    v
+[ Show Daily Dose of Reality + Current Mood ]
+    |
+    v
+[ User chooses action ]
+    |---------------------------|
+    |                           |
+    v                           v
+[ Types a normal message ]   [ Clicks "Vent to me" ]
+    |                           |
+    v                           v
+[ AI gives short             [ AI gives heavier,
+  demotivating reply ]         more crushing reply ]
+    |                           |
+    +------------+--------------+
+                 |
+                 v
+        [ Mood score drops ]
+                 |
+                 v
+        [ Encouragement Mode? ]
+           /            \
+         Yes             No
+          |               |
+          v               v
+   [ Softer negative ]  [ Normal negative ]
+          |               |
+          +-------+-------+
+                  |
+                  v
+          [ Wait for next message ]
+                  |
+                  +-----> (loop back)*
 
 For Hardware:
 
@@ -179,8 +216,11 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+
+
+https://github.com/user-attachments/assets/7fa7c5dc-8335-4eac-b632-622f8b0104b6
+
+
 
 # Additional Demos
 [Add any extra demo materials/links]
