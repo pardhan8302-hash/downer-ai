@@ -195,27 +195,9 @@ https://github.com/user-attachments/assets/05c23183-f4c5-4904-9e92-6c3c4854165b
                   |
                   +-----> (loop back)*
 
-For Hardware:
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
 
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
 
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
-
-### Project Demo
-# Video
 
 
 https://github.com/user-attachments/assets/7fa7c5dc-8335-4eac-b632-622f8b0104b6
@@ -226,9 +208,9 @@ https://github.com/user-attachments/assets/7fa7c5dc-8335-4eac-b632-622f8b0104b6
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+-  ANTIGRAVITY
+-  GROK
+-  CLAUD
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
